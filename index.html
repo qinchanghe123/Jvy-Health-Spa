@@ -11,8 +11,9 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Removed Matemasie font as requested, kept Josefin Sans -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Matemasie&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -137,9 +138,10 @@
         margin-bottom: 20px;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         color: #FFD700;
-        font-weight: 300;
+        font-weight: 700; /* Made slightly bolder for standard font */
         letter-spacing: 2px;
-        font-family: 'Matemasie', serif;
+        font-family: 'Josefin Sans', sans-serif; /* Reverted to standard font */
+        text-transform: uppercase; /* Added uppercase for cleaner header look */
       }
 
       .spa-tagline {
@@ -364,12 +366,41 @@
         padding: 40px 20px;
       }
 
+      .contact-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        align-items: flex-start;
+      }
+
       .address-box {
         background: white;
         padding: 40px;
         border-radius: 20px;
-        display: inline-block;
         box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        flex: 1;
+        min-width: 300px;
+        max-width: 450px;
+      }
+
+      .map-box {
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        height: 400px;
+        background: white;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
       }
       
       footer {
@@ -392,11 +423,20 @@
         nav ul {
             margin-top: 10px;
         }
+        .contact-content {
+          flex-direction: column;
+          align-items: center;
+        }
+        .map-box {
+          width: 100%;
+          height: 300px;
+        }
       }
     </style>
   </head>
 
   <body>
+    <!-- Navbar -->
     <nav>
       <ul>
         <li><a href="#services">Services</a></li>
@@ -405,19 +445,24 @@
       </ul>
     </nav>
 
+    <!-- Home Section -->
     <section id="home" class="home">
       <div class="home-content">
+        <!-- Reverted to standard font -->
         <h1>Jvy Health Spa</h1>
         <p class="spa-tagline">Relaxation, Body Work, and Rejuvenation</p>
       </div>
 
+      <!-- Call and Book Online Cards -->
       <div class="contact-buttons">
+        <!-- Call Card -->
         <div class="contact-card">
           <h3>📞 Call for Appointment</h3>
           <a href="tel:857-357-6388" class="phone-number">857-357-6388</a>
           <p>Open 7 Days A Week: 9:00am - 9:30pm</p>
         </div>
 
+        <!-- Book Online Card -->
         <div class="contact-card">
           <h3>💻 Book Online</h3>
           <button class="book-button" onclick="showBookingForm()">Schedule Now</button>
@@ -425,6 +470,7 @@
         </div>
       </div>
 
+      <!-- Booking Form -->
       <div id="bookingForm" class="booking-form">
         <button class="close-form" onclick="hideBookingForm()">&times;</button>
         <h3>Schedule Your Visit</h3>
@@ -463,11 +509,13 @@
       </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services">
       <h2>Price List</h2>
       <h4>Hover cards for pricing details</h4>
       <div class="services">
         
+        <!-- Swedish Massage -->
         <div class="service-box">
           <h3>Swedish Massage</h3>
           <p>Classic relaxation massage to relieve stress and tension.</p>
@@ -479,6 +527,7 @@
           </div>
         </div>
 
+        <!-- Deep Tissue -->
         <div class="service-box">
           <h3>Deep Tissue</h3>
           <p>Targeted pressure to relieve chronic muscle pain and stiffness.</p>
@@ -487,6 +536,7 @@
           </div>
         </div>
 
+        <!-- 4 Hands -->
         <div class="service-box">
           <h3>4 Hands Massage</h3>
           <p>Double the relaxation with two therapists working simultaneously.</p>
@@ -499,15 +549,19 @@
       </div>
     </section>
 
+    <!-- Gallery Section (Carousel) -->
     <section id="gallery">
       <h2>Gallery</h2>
       <div class="carousel-container">
+        <!-- Slide 1 -->
         <div class="carousel-slide fade active">
           <img src="https://spaandmassage.co.uk/wp-content/uploads/2025/08/guided_foot_pressure_points_ut1pv.jpg" alt="Massage Service 1">
         </div>
+        <!-- Slide 2 -->
         <div class="carousel-slide fade">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1L-0O6Juxasb8QicSAXdnWLSQjLrVvGVr8HPij_dvsgW7cWCeMVBGB-12hqGhPUkx5oA&usqp=CAU" alt="Massage Service 2">
         </div>
+        <!-- Slide 3 -->
         <div class="carousel-slide fade">
           <img src="https://images.squarespace-cdn.com/content/v1/5d5f2058a79cbf000111652a/1586842536251-IY8XEBZ4JINBCSKZKAHT/FaceMassage.jpg" alt="Massage Service 3">
         </div>
@@ -520,13 +574,24 @@
       </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Visit Us</h2>
-      <div class="address-box">
-        <h3>Jvy Health Spa</h3>
-        <p><strong>Address:</strong> 251 High St, Waltham, MA 02453</p>
-        <p><strong>Phone:</strong> <a href="tel:8573576388" style="color:#2c5f2d; font-weight:bold;">857-357-6388</a></p>
-        <p><strong>Hours:</strong> Open 7 Days A Week: 9:00am - 9:30pm</p>
+      <div class="contact-content">
+        <div class="address-box">
+          <h3>Jvy Health Spa</h3>
+          <p><strong>Address:</strong> 251 High St, Waltham, MA 02453</p>
+          <p><strong>Phone:</strong> <a href="tel:8573576388" style="color:#2c5f2d; font-weight:bold;">857-357-6388</a></p>
+          <p><strong>Hours:</strong> Open 7 Days A Week: 9:00am - 9:30pm</p>
+        </div>
+        <!-- Embedded Google Map -->
+        <div class="map-box">
+          <iframe 
+            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=251%20High%20St,%20Waltham,%20MA%2002453+(Jvy%20Health%20Spa)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+            title="Jvy Health Spa Location"
+            loading="lazy">
+          </iframe>
+        </div>
       </div>
     </section>
 
@@ -534,6 +599,7 @@
       <p>&copy; 2025 Jvy Health Spa. All Rights Reserved.</p>
     </footer>
 
+    <!-- Scripts -->
     <script>
       // Form Toggle Logic
       function showBookingForm() {
